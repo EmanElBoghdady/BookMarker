@@ -31,12 +31,12 @@
                 <div class="form pb-4">
                     <div class="mb-3 my-2">
                         <label for="SiteName" class="form-label "><i class="fa-solid fa-book-bookmark me-2 "></i>Site Name</label>
-                        <input type="text" class="form-control" id="SiteName" placeholder="Bookmark Name">
+                        <input oninput="validateBookInputs(this)" type="text" class="form-control" id="SiteName" placeholder="Bookmark Name">
                     </div>
 
                     <div class="mb-3 my-2">
                         <label for="SiteURL" class="form-label"><i class="fa-solid fa-link me-2"></i>Site URL</label>
-                        <input type="url" class="form-control" id="SiteURL" placeholder="Website URL">
+                        <input oninput="validateBookInputs(this)" type="url" class="form-control" id="SiteURL" placeholder="Website URL">
                     </div>
 
                     <button onclick="addBook()" class="btn btn-danger d-block m-auto">Submit</button>

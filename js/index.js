@@ -9,6 +9,12 @@ var closeButton = document.getElementById("closeButton")
 // console.log(popup);
 
 
+
+
+
+
+
+
 var books = []
 
 if(localStorage.getItem("BooksList") !== null){
@@ -22,8 +28,8 @@ function addBook(){
         url : websiteURLInput.value
     }
 
-    
-
+    // var urlValidation = /^(https?:\/\/)?(www\.)?[a-zA-Z0-9-]+(\.[a-zA-Z]{2,6})+([\/\w\-.?=&]*)*\/?$/
+    //  || ! urlValidation.test(websiteURLInput.value
     if(book.name == "" || book.name.length < 3 || book.url == "" ){
         popup.classList.remove("d-none");
         myBody.classList.remove("d-none");
@@ -83,11 +89,38 @@ function deleteBook(id){
 }
 function clearForm(){
     websiteNameInput.value = "" ;
-    websiteURLInput.value = ""
+    websiteURLInput.value = "";
+
+    websiteNameInput.classList.remove("is-valid");
+    websiteURLInput.classList.remove("is-valid")
 }
 
 
 function closePopup(){
     popup.classList.add("d-none");
-    myBody.classList.add("d-none")
+    myBody.classList.add("d-none");
+}
+
+function validateBookInputs(element){
+    
+
+    var regex = {
+        SiteName : /^([a-z]|[A-Z])([a-z]|[A-Z]){2,10}$/ ,
+        SiteURL : /^(https?:\/\/)?(www\.)?[a-zA-Z0-9-]+(\.[a-zA-Z]{2,6})+([\/\w\-.?=&]*)*\/?$/
+    }
+
+    if(regex[element.id].test(element.value)){
+        element.classList.add("is-valid");
+        element.classList.remove("is-invalid")
+    }else{
+        element.classList.add("is-invalid");
+        element.classList.remove("is-valid")
+    }
+
+    if(element.value == ""){
+        element.classList.remove("is-invalid")
+    }
+
+
+    
 }
