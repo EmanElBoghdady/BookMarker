@@ -1,6 +1,6 @@
 var websiteNameInput = document.getElementById("SiteName")
-// console.log(websiteNameInput);
 var websiteURLInput = document.getElementById("SiteURL")
+// console.log(websiteNameInput);
 // console.log(websiteURLInput);
 
 var popup = document.getElementById("popup");
@@ -28,8 +28,7 @@ function addBook(){
         url : websiteURLInput.value
     }
 
-    // var urlValidation = /^(https?:\/\/)?(www\.)?[a-zA-Z0-9-]+(\.[a-zA-Z]{2,6})+([\/\w\-.?=&]*)*\/?$/
-    //  || ! urlValidation.test(websiteURLInput.value
+   
     if(book.name == "" || book.name.length < 3 || book.url == "" ){
         popup.classList.remove("d-none");
         myBody.classList.remove("d-none");
